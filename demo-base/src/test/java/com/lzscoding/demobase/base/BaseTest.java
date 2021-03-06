@@ -3,6 +3,10 @@ package com.lzscoding.demobase.base;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+
+import static java.lang.Thread.sleep;
+
 @Slf4j
 public class BaseTest {
 
@@ -112,9 +116,19 @@ public class BaseTest {
 
     }
 
+    public static void test9() {
+        IntStream.range(1, 10).forEach(i -> {
+            try {
+                System.out.println(i);
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     public static void main(String[] args) {
-
+        test9();
         BaseTest ex = new BaseTest();
         System.out.println(ex.str + " and " + ex.ch);
         ex.test2(ex.str, ex.ch);

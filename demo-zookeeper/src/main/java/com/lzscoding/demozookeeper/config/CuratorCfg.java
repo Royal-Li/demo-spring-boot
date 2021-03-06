@@ -1,5 +1,6 @@
-package com.lzscoding.demozookeeper.config.props;
+package com.lzscoding.demozookeeper.config;
 
+import com.lzscoding.demozookeeper.config.props.ZkProps;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -21,9 +22,9 @@ public class CuratorCfg {
     }
 
     @Bean(initMethod = "start")
-    public CuratorFramework curatorFramework(){
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(zkProps.getTimeout(),zkProps.getRetry());
-        CuratorFramework client = CuratorFrameworkFactory.newClient(zkProps.getUrl(),retryPolicy);
+    public CuratorFramework curatorFramework() {
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(zkProps.getTimeout(), zkProps.getRetry());
+        CuratorFramework client = CuratorFrameworkFactory.newClient(zkProps.getUrl(), retryPolicy);
         //client.start();
         return client;
     }
