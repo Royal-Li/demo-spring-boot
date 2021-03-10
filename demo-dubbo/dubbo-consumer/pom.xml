@@ -3,12 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lzscoding</groupId>
-    <artifactId>demo-spring-boot</artifactId>
+    <artifactId>dubbo-consumer</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>demo-spring-boot</name>
-    <description>整合框架学习练习</description>
+    <name>dubbo-consumer</name>
 
-    <packaging>pom</packaging>
+    <description>dubbo服务消费者</description>
+
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>com.lzscoding</groupId>
+        <artifactId>demo-dubbo</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
 
     <properties>
         <java.version>1.8</java.version>
@@ -17,52 +24,19 @@
         <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
     </properties>
 
-    <modules>
-        <module>demo-base</module>
-<!--        <module>demo-redis</module>-->
-        <module>demo-zookeeper</module>
-        <module>demo-mybatis-plus</module>
-<!--        <module>demo-multi-datasource-mybatis</module>-->
-<!--        <module>demo-socket</module>-->
-        <module>demo-dubbo</module>
-<!--        <module>demo-rocketmq</module>-->
-<!--        <module>demo-sharding-porxy</module>-->
-<!--        <module>demo-nacos</module>-->
-<!--        <module>demo-seate</module>-->
-    </modules>
-
     <dependencies>
+
+        <dependency>
+            <groupId>com.lzscoding</groupId>
+            <artifactId>dubbo-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.taobao.arthas</groupId>-->
-<!--            <artifactId>arthas-spring-boot-starter</artifactId>-->
-<!--            <version>3.4.3</version>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -73,11 +47,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -110,7 +79,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.lzscoding.demospringboot.DemoSpringBootApplication</mainClass>
+                    <mainClass>com.lzscoding.dubbo.consumer.DubboConsumerApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

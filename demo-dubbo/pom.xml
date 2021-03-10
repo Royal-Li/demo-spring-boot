@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.lzscoding</groupId>
+
     <artifactId>demo-dubbo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>demo-dubbo</name>
@@ -18,6 +18,8 @@
 
     <modules>
         <module>dubbo-common</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-consumer</module>
     </modules>
 
     <properties>
@@ -25,7 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
-        <zkclient.version>0.10</zkclient.version>
+        <zkclient.version>0.11</zkclient.version>
     </properties>
 
     <dependencies>
