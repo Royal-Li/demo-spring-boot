@@ -4,13 +4,15 @@ package com.lzscoding.demobase.java8.stream;
 
 import com.lzscoding.demobase.domain.User;
 import com.lzscoding.demobase.enums.GenderEnum;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamTest1 {
 
-    public static void test1() {
+    @Test
+    public void test1() {
         List<Integer> list = Arrays.asList(11, 8, 43, 64, 376, 34, 3, 2, 56, 74, 222, 42, 234, 6, 7567, 6, 45, 6, 547, 58, 9);
         //遍历输出符合条件的元素
         list.stream().filter(x -> x > 100).forEach(System.out::println);
@@ -25,8 +27,8 @@ public class StreamTest1 {
         System.out.println("是否存在大于100的值:" + anyMatch);
         System.out.println("------------------------------------");
     }
-
-    public static void test2() {
+    @Test
+    public void test2() {
         List<User> userList = new ArrayList<>();
         userList.add(new User(8L, "hamasa", 88, "88.@qq.com", GenderEnum.Female, new Date()));
         userList.add(new User(1L, "tom", 11, "11.@qq.com", GenderEnum.Male, new Date()));
@@ -47,6 +49,7 @@ public class StreamTest1 {
 
         List<String> groupNameGender = userList.stream().map(user -> {
             user.setName(user.getName() + "--" + user.getGender().getName());
+
             return user.getName();
         }).collect(Collectors.toList());
 
@@ -58,8 +61,8 @@ public class StreamTest1 {
         System.out.println("------------------------------------");
 
     }
-
-    public static void test3() {
+    @Test
+    public void test3() {
         List<String> list = Arrays.asList("azzzz", "baaa", "efg", "hijklmnop", "qrstuvwxyz", "z");
         Optional<String> max = list.stream().max(String::compareTo);
         Optional<String> max1 = list.stream().max(Comparator.comparing(String::length));
@@ -77,8 +80,6 @@ public class StreamTest1 {
 
 
     public static void main(String[] args) {
-        test1();
-        test2();
-        test3();
+
     }
 }
