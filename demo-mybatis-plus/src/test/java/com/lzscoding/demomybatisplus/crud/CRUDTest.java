@@ -2,7 +2,6 @@ package com.lzscoding.demomybatisplus.crud;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lzscoding.demomybatisplus.DemoMybatisPlusApplicationTests;
 import com.lzscoding.demomybatisplus.dao.UserDao;
@@ -10,7 +9,12 @@ import com.lzscoding.demomybatisplus.pojo.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -57,6 +61,26 @@ public class CRUDTest extends DemoMybatisPlusApplicationTests {
         List<User> users = userDao.selectByCondition(User.builder().name("Jone").age(24).build());
         log.warn("用戶列表:{}", JSONObject.toJSONString(users, SerializerFeature.PrettyFormat));
     }
+
+    @Test
+    @Transactional()
+    @Rollback(value = false)
+    public void mybatisTransactionalTest() {
+        log.warn("测试mybatis事务");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss"); //设置时间格式
+        String sdate = sdf.format(new Date());
+
+        User user = userDao.selectById(1);
+        user.setName(user.getName() + sdate);
+        int result = userDao.updateById(user);
+        if (result == 1) {
+            user = userDao.selectById(1);
+            log.warn("userid为1的人的信息:{}", JSONObject.toJSONString(user));
+        }
+        int e = 1 / 0;
+
+    }
+
 
     //TODO: 不受spring管理?怎么处理
 
