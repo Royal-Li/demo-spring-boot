@@ -3,61 +3,74 @@
 <mapper namespace="com.lzscoding.demomybatisplus.dao.ProductDao">
   <resultMap id="BaseResultMap" type="com.lzscoding.demomybatisplus.pojo.Product">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
-    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="version" jdbcType="TINYINT" property="version" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, order_id, product_id
+    id, `name`, stock, version
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from order
+    from product
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from order
+    delete from product
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lzscoding.demomybatisplus.pojo.Product" useGeneratedKeys="true">
-    insert into order (order_id, product_id)
-    values (#{orderId,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER})
+    insert into product (`name`, stock, version
+      )
+    values (#{name,jdbcType=VARCHAR}, #{stock,jdbcType=INTEGER}, #{version,jdbcType=TINYINT}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lzscoding.demomybatisplus.pojo.Product" useGeneratedKeys="true">
-    insert into order
+    insert into product
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="orderId != null">
-        order_id,
+      <if test="name != null">
+        `name`,
       </if>
-      <if test="productId != null">
-        product_id,
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="version != null">
+        version,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="orderId != null">
-        #{orderId,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="productId != null">
-        #{productId,jdbcType=INTEGER},
+      <if test="stock != null">
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.lzscoding.demomybatisplus.pojo.Product">
-    update order
+    update product
     <set>
-      <if test="orderId != null">
-        order_id = #{orderId,jdbcType=VARCHAR},
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="productId != null">
-        product_id = #{productId,jdbcType=INTEGER},
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lzscoding.demomybatisplus.pojo.Product">
-    update order
-    set order_id = #{orderId,jdbcType=VARCHAR},
-      product_id = #{productId,jdbcType=INTEGER}
+    update product
+    set `name` = #{name,jdbcType=VARCHAR},
+      stock = #{stock,jdbcType=INTEGER},
+      version = #{version,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

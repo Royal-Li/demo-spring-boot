@@ -6,7 +6,7 @@
     <artifactId>demo-redis</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>demo-redis</name>
-    <description>springboot整合redis 实现秒杀分布式锁 和 redis操作</description>
+    <description>springboot整合redis 实现秒杀分布式锁 redis操作 redis session共享 redis 点赞排行操作</description>
 
     <packaging>jar</packaging>
 
@@ -39,6 +39,28 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- 依赖mybatis-plus 减少pojo和dao层工作-->
+        <dependency>
+            <groupId>com.lzscoding</groupId>
+            <artifactId>demo-mybatis-plus</artifactId>
+            <version>${version}</version>
+        </dependency>
+        <!--spring redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- redisson-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.14.1</version>
+        </dependency>
+        <!-- spring session + redis -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
         </dependency>
     </dependencies>
 

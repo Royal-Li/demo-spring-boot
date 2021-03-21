@@ -5,16 +5,18 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * order
- * @author 
+ * product
+ * @author
  */
 @Data
 public class Product implements Serializable {
     private Integer id;
 
-    private String orderId;
+    private String name;
 
-    private Integer productId;
+    private Integer stock;
+
+    private Byte version;
 
     private static final long serialVersionUID = 1L;
 }

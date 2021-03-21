@@ -22,13 +22,14 @@
         <module>demo-redis</module>
         <module>demo-zookeeper</module>
         <module>demo-mybatis-plus</module>
+        <module>demo-dubbo</module>
 <!--        <module>demo-multi-datasource-mybatis</module>-->
 <!--        <module>demo-socket</module>-->
-        <module>demo-dubbo</module>
 <!--        <module>demo-rocketmq</module>-->
 <!--        <module>demo-sharding-porxy</module>-->
 <!--        <module>demo-nacos</module>-->
 <!--        <module>demo-seate</module>-->
+<!--        <module>demo-log4j2</module>-->
     </modules>
 
     <dependencies>
