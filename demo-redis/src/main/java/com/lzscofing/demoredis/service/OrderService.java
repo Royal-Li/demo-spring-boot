@@ -15,4 +15,8 @@ public interface OrderService {
      */
     void createOrder(Integer productId, Integer number) throws InterruptedException;
 
+    static void aaa() {
+        System.out.println(1111);
+    }
+
 }

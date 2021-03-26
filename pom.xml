@@ -30,6 +30,7 @@
 <!--        <module>demo-nacos</module>-->
 <!--        <module>demo-seate</module>-->
 <!--        <module>demo-log4j2</module>-->
+<!--        <module>demo-poi</module>-->
     </modules>
 
     <dependencies>
@@ -64,6 +65,10 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--junit-vintage-engine   是 JUnit 4 中使用的测试引擎。
+            junit-jupiter-engine   是 JUnit 5 中使用的测试引擎。
+            如果你的 Spring 项目使用的新的 Spring Boot 版本的话，你应该默认使用了 JUnit 5 的引擎，
+            因此为了兼容性，你需要在 spring-boot-starter-test 这个 POM 引用的时候将 JUnit 4 的引擎去除掉。-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -75,11 +80,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>

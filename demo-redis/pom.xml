@@ -44,7 +44,7 @@
         <dependency>
             <groupId>com.lzscoding</groupId>
             <artifactId>demo-mybatis-plus</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <!--spring redis-->
         <dependency>
