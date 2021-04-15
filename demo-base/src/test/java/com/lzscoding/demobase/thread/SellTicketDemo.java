@@ -94,9 +94,9 @@ public class SellTicketDemo {
         //IntStream.range(0, 10).forEach(i -> new SellTicketThread().start());
 
         //如果加了synchronize关键字还锁不住 应该查找一下 是不是加的同一吧锁
-        //IntStream.range(0, 5).forEach(i -> new SellTicketThreadLock().start());
+        IntStream.range(0, 5).forEach(i -> new SellTicketThreadLock().start());
 
-        IntStream.range(0, 5).forEach(i -> new SellTicketThreadReentrantLock().start());
+        //IntStream.range(0, 5).forEach(i -> new SellTicketThreadReentrantLock().start());
 
     }
 }
