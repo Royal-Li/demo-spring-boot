@@ -1,5 +1,6 @@
 package com.lzscoding.demobase.pattern.proxy.cglib;
 
+import com.lzscoding.demobase.pattern.proxy.GenerateClass;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
@@ -16,16 +17,21 @@ public class ProxyFactory implements MethodInterceptor {
         this.target = target;
     }
 
-    //返回一个代理对象:是target对象的代理对象
+    //返回一个代理对象:是target对象的代理对象 这里是关键
     public Object getProxyInstance() {
         //1 建一个工具类
         Enhancer enhancer = new Enhancer();
-        //2 设置父类
-        enhancer.setSuperclass(target.getClass());
-        //3 设置回调函数
-        enhancer.setCallback(this);
-        //创建子类对象,即代理对象
-        return enhancer.create();
+        try {
+            //2 设置父类
+            enhancer.setSuperclass(target.getClass());
+            //3 设置回调函数
+            enhancer.setCallback(this);
+            //创建子类对象,即代理对象
+            return enhancer.create();
+        } finally {
+            //生成cglib字节码文件
+            GenerateClass.cglibProxy(enhancer);
+        }
     }
 
     //重写intercept方法,会调用目标对象的方法

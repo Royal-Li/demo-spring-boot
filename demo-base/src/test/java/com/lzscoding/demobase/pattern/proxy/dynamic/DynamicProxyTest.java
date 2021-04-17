@@ -10,5 +10,10 @@ public class DynamicProxyTest {
         proxyInstance.teach();
         System.out.println("proxyInstance " + proxyInstance + "请注意类名");
         System.out.println("proxyInstance Type" + proxyInstance.getClass() + "有$符号说明是代理对象");
+
+        System.out.println("下面这段代码会报错 jdk动态代理需要有顶层接口才能使用");
+        TeacherDaoImpl targetImpl = new TeacherDaoImpl();
+        TeacherDaoImpl proxyInstanceImpl = (TeacherDaoImpl) new ProxyFactory(target).getProxyInstance();
+        proxyInstanceImpl.teach();
     }
 }
