@@ -1,4 +1,4 @@
-package com.lzscoding.demobase.algorithm;
+package com.lzscoding.demobase.algorithm.link;
 
 
 /**
@@ -80,9 +80,9 @@ public class ReverseList {
         }
 
         printNode(headNode);
-
         ListNode reverseListHead = new Solution().reverseList(headNode);
         printNode(reverseListHead);
+
 //        ListNode reverseListHead1 = new Solution().reverseList(headNode);
 //        printNode(reverseListHead1);
 

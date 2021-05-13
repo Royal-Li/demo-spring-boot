@@ -17,8 +17,6 @@ public class A1B2C3 {
         }
 
         System.out.println((int) 'A');
-
-
         new PrintCharThread(c).start();
         new PrintNumThread(n).start();
 

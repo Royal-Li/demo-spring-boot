@@ -1,4 +1,4 @@
-package com.lzscoding.demobase.algorithm;
+package com.lzscoding.demobase.algorithm.link;
 
 public class ReverseList2 {
 
