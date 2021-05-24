@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
  */
 public class GenerateClass {
 
-    private static String USER_SIR = System.getProperty("user.dir") + "\\file\\Proxy\\";
+    public static String USER_SIR = System.getProperty("user.dir") + "\\file\\Proxy\\";
 
     public static void dynamicProxy() throws Exception {
         //byte[] proxyClassFile = ProxyGenerator.generateProxyClass(proxyName, interfaces);
