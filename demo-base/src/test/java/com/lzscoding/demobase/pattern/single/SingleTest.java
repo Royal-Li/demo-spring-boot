@@ -11,7 +11,7 @@ class SingleObject {
 
     //饿汉式 线程安全 类加载时就初始化,浪费内存,容易产生垃圾对象
 //    private static SingleObject instance = new SingleObject();
-    private static SingleObject instance;
+    private static volatile SingleObject instance;
 
     //构造函数私有,不被实例化
     private SingleObject() {
