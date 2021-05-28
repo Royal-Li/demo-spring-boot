@@ -19,6 +19,7 @@ public class DemoSpringApplication {
 
     }
 
+
 //    @Lazy
 //    @Bean(initMethod = "initTestBean",destroyMethod = "destroyTestBean")
 //    public TestBean testBeanInjection(TestBean testBean){
