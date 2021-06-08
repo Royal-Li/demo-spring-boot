@@ -15,7 +15,8 @@ public class KuaiSuSort {
 
     public static void main(String[] args) {
 
-        int[] num = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
+//        int[] num = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
+        int[] num = new int[]{6, 45, 96, 64, 3, 5, 8, 9, 4, 10, 1, 2, 5, -3, 16, 12, 13, 3, 9, 7};
         System.out.println("排序前: " + JSONObject.toJSONString(num));
         QuickSort(num, 0, num.length - 1);
         System.out.println("排序后: " + JSONObject.toJSONString(num));
@@ -59,8 +60,8 @@ public class KuaiSuSort {
         num[left] = num[i];
         num[i] = key;
         count++;
-        QuickSort(num, left, i - 1);
-        QuickSort(num, i + 1, right);
+//        QuickSort(num, left, i - 1);
+//        QuickSort(num, i + 1, right);
     }
 
 
