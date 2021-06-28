@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
+ * https://blog.csdn.net/imbestman/article/details/111995273
  * 最小k个数 (大根堆)
  * <p>
  * 保持堆的大小为K，然后遍历数组中的数字，遍历的时候做如下判断：
@@ -11,9 +12,10 @@ import java.util.Queue;
  * 2. 否则判断当前数字与大根堆堆顶元素的大小关系，如果当前数字比大根堆堆顶还大，这个数就直接跳过；
  * 反之如果当前数字比大根堆堆顶小，先poll掉堆顶，再将该数字放入堆中。
  */
-public class MinKNum {
+public class MinKNums {
     public static void main(String[] args) {
-        int a[] = {1, 2, 3, 4, 5, 6,};
+//        int a[] = {1, 2, 3, 4, 5, 6,};
+        int a[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
         int[] leastNumbers = getLeastNumbers(a, 4);
         for (int num : leastNumbers) {
             System.out.println(num);
