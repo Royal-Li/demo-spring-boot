@@ -15,7 +15,7 @@ class MyCallable implements Callable<String> {
 
     @Override
     public String call() throws Exception {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         return Thread.currentThread().getName() + " : 传递的参数是  : " + param;
     }
 }
@@ -31,7 +31,7 @@ public class ThreadDemo3 {
          * 当然不会，futureTask.get（）方法会保证线程在执行完之前是阻塞的.
          */
 
-        test2();
+        test3();
     }
 
     public static void test1() throws InterruptedException, ExecutionException {

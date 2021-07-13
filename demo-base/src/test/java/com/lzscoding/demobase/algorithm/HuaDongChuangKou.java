@@ -10,7 +10,7 @@ import java.util.List;
 public class HuaDongChuangKou {
     public static void main(String[] args) {
         int a[] = new int[]{2,3,4,2,6,2,5,1};
-        huaDongChuangKou(a,3);
+        System.out.println(huaDongChuangKou(a,3));
 
     }
 

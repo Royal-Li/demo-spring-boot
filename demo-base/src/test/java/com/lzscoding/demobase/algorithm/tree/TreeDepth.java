@@ -6,6 +6,7 @@ package com.lzscoding.demobase.algorithm.tree;
 class TreeNode {
     TreeNode left;
     TreeNode right;
+    TreeNode parent;
     int val;
 
     public TreeNode(int val) {
