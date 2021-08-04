@@ -6,6 +6,10 @@ import com.lzscoding.demobase.enums.GenderEnum;
 import java.util.Date;
 import java.util.Optional;
 
+/**
+ * com.lzscoding.demobase.optional 有更详细的示例
+ *
+ */
 public class OptionalTest {
 
     public static void test1() {

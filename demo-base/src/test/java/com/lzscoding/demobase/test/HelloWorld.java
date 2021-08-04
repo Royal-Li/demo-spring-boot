@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class HelloWorld {
     @Test
@@ -22,6 +24,11 @@ public class HelloWorld {
             }
             System.out.println(i);
         });
+
+        System.out.println(Stream.of(1, 2, 3, 4, 5, 6).parallel().map(l -> {
+            System.out.println(Thread.currentThread().getName() + "--" + l);
+            return l;
+        }).collect(Collectors.toList()));
 
     }
 
