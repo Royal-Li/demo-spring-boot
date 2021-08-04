@@ -2,4 +2,34 @@
 
 参考链接
 https://www.cnblogs.com/whm-blog/p/11641818.html
+https://zhuanlan.zhihu.com/p/354752357
 
+
+
+当我想从远程仓库里拉取一条本地不存在的分支时：
+git checkout -b 本地分支名 origin/远程分支名
+
+推送本地分支到远程仓库
+git push --set-upstream origin 分支名
+
+我在本地建了一个分支znn，开发完之后，提交代码
+
+git add .
+git commit -m '注释'
+git push
+
+出现下面的问题，这个意思是：当前分支没有与远程分支关联。
+因此导致了提交代码失败。
+
+MacBook-Pro-5:web-crm znn$ git push
+fatal: The current branch znn has no upstream branch.
+To push the current branch and set the remote as upstream, use
+git push --set-upstream origin znn
+
+解决方案：
+（1）直接 git push origin znn 推向制定的分支，最强暴的方法。
+（2）正如上面所说关联远程分支。
+
+git push --set-upstream origin znn
+origin 是默认的远程版本库名称
+这样关联有一个好处，以后就不用每次git push都用第（1）种方法。
