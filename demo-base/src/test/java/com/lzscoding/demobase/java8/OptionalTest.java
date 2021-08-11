@@ -8,13 +8,12 @@ import java.util.Optional;
 
 /**
  * com.lzscoding.demobase.optional 有更详细的示例
- *
  */
 public class OptionalTest {
 
     public static void test1() {
         Optional<String> optional1 = Optional.ofNullable(null);
-        System.out.println(optional1.isPresent()+"--"+optional1);
+        System.out.println(optional1.isPresent() + "--" + optional1);
 
         Optional<User> optionalUser = Optional.ofNullable(new User());
         System.out.println(optionalUser.isPresent());
@@ -24,6 +23,8 @@ public class OptionalTest {
         Optional<User> optionalUser2 = Optional.empty();
         System.out.println(optionalUser2.isPresent());
         System.out.println(optionalUser2);
+
+        Optional.ofNullable(null).orElseThrow(() -> new RuntimeException("自定义错误"));
     }
 
     public static void main(String[] args) {

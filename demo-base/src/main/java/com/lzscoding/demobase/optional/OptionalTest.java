@@ -16,6 +16,14 @@ import java.util.stream.Stream;
 public class OptionalTest {
 
     public static void main(String[] args) {
+
+        Optional.ofNullable("我不是空").ifPresent(var -> {
+            System.out.println("处理" + var);
+        });
+
+//        Optional<Child> emptyChild = Optional.empty();
+//        System.out.println(emptyChild.get().getStr());
+
         GrandParent opt1 = null;
         String opt1Str =
                 Optional.ofNullable(opt1).map(o1 -> o1.getParent())
@@ -62,6 +70,7 @@ public class OptionalTest {
         result = Optional.ofNullable(listR).flatMap(l -> l.stream().findAny())
                 .flatMap(l -> l.keySet().stream().findAny()).orElse(null);
         System.out.println(result);
+        System.out.println(Optional.ofNullable(listR).map(l -> l.stream().findAny().get()));
 
         //-----------------------------------------------------------------------------------------
 
@@ -80,7 +89,8 @@ public class OptionalTest {
         ArgNotNull(null);
 
     }
-    public static void ArgNotNull(@NonNull String notNullArg){
+
+    public static void ArgNotNull(@NonNull String notNullArg) {
         System.out.println(notNullArg);
     }
 
