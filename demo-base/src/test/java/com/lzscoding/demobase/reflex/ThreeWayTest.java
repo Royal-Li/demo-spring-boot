@@ -16,7 +16,7 @@ import com.lzscoding.demobase.domain.User;
  * 原文链接：https://blog.csdn.net/meism5/article/details/103117185
  */
 public class ThreeWayTest {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         User user = new User();
         Class classObj1 = user.getClass();
         //这里的getName()
@@ -27,6 +27,9 @@ public class ThreeWayTest {
 
         Class<User> classObj3 = User.class;
         System.out.println(classObj3.getName());
+
+//        User classObj4 = User.class.newInstance();
+//        System.out.println(classObj4.getName());
 
     }
 }

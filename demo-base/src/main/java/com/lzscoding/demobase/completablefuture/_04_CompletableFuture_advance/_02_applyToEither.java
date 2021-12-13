@@ -21,6 +21,7 @@ public class _02_applyToEither {
         }).applyToEither(CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("800路公交正在赶来");
             SmallTool.sleepMillis(200);
+            SmallTool.printTimeAndThread("800路公交赶到了");
             return "800路到了";
         }), firstComeBus -> firstComeBus);
 

@@ -7,6 +7,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +37,7 @@ public class TransactionalController {
 
 
     @RequestMapping("/test1")
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED)
     public ResponseEntity<?> transationalTest1() {
         User user = null;
         try {
@@ -44,6 +45,7 @@ public class TransactionalController {
             user = User.builder().name("事务插入测试人员" + this.getTimeNumber()).age(1).email("qq.com").build();
             userDao.insertSelective(user);
             int e = 1 / 0;
+            log.info("异常被捕捉，回滚不生效");
         } catch (Exception e) {
             e.printStackTrace();
         }
