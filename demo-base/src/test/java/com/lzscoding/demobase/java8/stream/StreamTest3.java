@@ -76,6 +76,8 @@ public class StreamTest3 {
         userList.add(new User(3L, "jerry", 33, "22.@qq.com", GenderEnum.Female, new Date()));
         userList.add(new User(4L, "lisa", 44, "22.@qq.com", GenderEnum.Female, new Date()));
 
+        //按照年龄分组 名字为valueList
+        Map<Integer, List<String>> ageGroupNameListValue = userList.stream().collect(Collectors.groupingBy(User::getAge, Collectors.mapping(User::getName, Collectors.toList())));
         //按照55年龄分组
         Map<Boolean, List<User>> ageGroup = userList.stream().collect(Collectors.partitioningBy(x -> x.getAge() > 55));
         //按照性别分组
@@ -88,6 +90,7 @@ public class StreamTest3 {
         List<Integer> ageSort = userList.stream().map(User::getAge).sorted(Comparator.comparing(Integer::intValue)).collect(Collectors.toList());
         List<String> ageSortName = userList.stream().sorted(Comparator.comparing(User::getAge)).map(User::getName).collect(Collectors.toList());
 
+        System.out.println("按照年龄分组 名字为valueList" + ageGroupNameListValue);
         System.out.println("按年龄分组: " + ageGroup);
         System.out.println("按性别分组: " + genderGroup);
         System.out.println("按照年龄和性别分组: " + ageGenderGroup);

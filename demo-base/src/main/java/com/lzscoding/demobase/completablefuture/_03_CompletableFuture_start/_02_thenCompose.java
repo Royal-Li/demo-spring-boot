@@ -14,11 +14,14 @@ public class _02_thenCompose {
 
         CompletableFuture<String> cf1 = CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("厨师炒菜");
-            SmallTool.sleepMillis(200);
+            SmallTool.sleepMillis(2000);
+//            if(true){
+//                throw new RuntimeException();
+//            }
             return "番茄炒蛋";
         }).thenCompose(dish -> CompletableFuture.supplyAsync(() -> {
             SmallTool.printTimeAndThread("服务员打饭");
-            SmallTool.sleepMillis(100);
+            SmallTool.sleepMillis(1000);
             return dish + " + 米饭";
         }));
 
